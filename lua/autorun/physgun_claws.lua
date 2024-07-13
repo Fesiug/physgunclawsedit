@@ -191,10 +191,34 @@ hook_Add("Think", "PhysgunClaws", function()
 		local open = physgun:GetNW2Int( "PhysgunClawState", 0 )
 		if ( !IsValid(owner) or !owner:Alive() or owner:InVehicle() ) or owner:GetActiveWeapon()!=physgun or physgun:IsEffectActive(EF_NODRAW) then
 			if CLIENT then
-				physgun.S1:Stop()
-				physgun.S2:Stop()
-				physgun.S3:Stop()
-				physgun.S4:Stop()
+				if physgun.S1 then
+					physgun.S1:Stop()
+				else
+					physgun.S1 = CreateSound(physgun, "fesiug/physgun_claws/physgun_loop1.wav")
+					physgun.S1:Play()
+					physgun.S1:Stop()
+				end
+				if physgun.S2 then
+					physgun.S2:Stop()
+				else
+					physgun.S2 = CreateSound(physgun, "fesiug/physgun_claws/physgun_loop2.wav")
+					physgun.S2:Play()
+					physgun.S2:Stop()
+				end
+				if physgun.S3 then
+					physgun.S3:Stop()
+				else
+					physgun.S3 = CreateSound(physgun, "fesiug/physgun_claws/physgun_loop3.wav")
+					physgun.S3:Play()
+					physgun.S3:Stop()
+				end
+				if physgun.S4 then
+					physgun.S4:Stop()
+				else
+					physgun.S4 = CreateSound(physgun, "fesiug/physgun_claws/physgun_loop4.wav")
+					physgun.S4:Play()
+					physgun.S4:Stop()
+				end
 			end
 
 			if open>=1 then
